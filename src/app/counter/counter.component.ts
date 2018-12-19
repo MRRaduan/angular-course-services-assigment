@@ -14,6 +14,7 @@ export class CounterComponent implements OnInit {
   inactiveCounter = this.counterService.inactiveCounter;
 
   ngOnInit() {
+    console.log(this.activeCounter);
   }
 
 }

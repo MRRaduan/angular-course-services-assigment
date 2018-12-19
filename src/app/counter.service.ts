@@ -12,11 +12,11 @@ export class CounterService {
   public inactiveCounter: number = 0;
 
   onActive() {
-   this.activeCounter++;
+    this.inactiveCounter++;
   }
 
   onInactive() {
-    this.inactiveCounter++;
+    this.activeCounter++;
   }
 
 
