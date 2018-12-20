@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { CounterService } from '../counter.service';
 
 @Component({
@@ -6,15 +6,20 @@ import { CounterService } from '../counter.service';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent implements OnInit, DoCheck {
 
   constructor(private counterService: CounterService) { }
 
-  activeCounter = this.counterService.activeCounter;
-  inactiveCounter = this.counterService.inactiveCounter;
+  activeCounter: number;
+  inactiveCounter: number;
 
   ngOnInit() {
     console.log(this.activeCounter);
+  }
+
+  ngDoCheck() {
+    this.activeCounter = this.counterService.activeCounter;
+    this.inactiveCounter = this.counterService.inactiveCounter;
   }
 
 }
